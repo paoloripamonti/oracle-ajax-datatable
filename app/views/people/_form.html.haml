@@ -1,0 +1,43 @@
+= form_for @person, :html => {:class => "form-horizontal"} do |f|
+
+  - if @person.errors.any?
+    .alert.alert-danger#error_explanation
+      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
+      %ul
+        - @person.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name, "Name", :class => 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_field :name, :class => "form-control", :autocomplete => 'off', :required => true
+
+  .form-group
+    = f.label :position, "Position", :class => 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_field :position, :class => "form-control", :autocomplete => 'off', :required => true
+
+  .form-group
+    = f.label :office, "Office", :class => 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_field :office, :class => "form-control", :autocomplete => 'off', :required => true
+
+  .form-group
+    = f.label :extn, "Extn", :class => 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_field :extn, :class => "form-control", :autocomplete => 'off', :required => true
+
+  .form-group
+    = f.label :start_date, "Star Date", :class => 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_field :start_date, :class => "form-control datepicker", :autocomplete => 'off', :required => true
+
+  .form-group
+    = f.label :salary, "Salary", :class => 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_field :salary, :class => "form-control", :autocomplete => 'off', :required => true
+
+  .form-group
+    .col-sm-offset-2
+      = f.submit "Save", :class => 'btn btn-primary'
+      = link_to "Cancel", root_url, :class => 'btn btn-default'

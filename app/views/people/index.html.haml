@@ -1,0 +1,15 @@
+.page-header
+  .pull-right
+    =link_to 'New', new_person_path, :class => "btn btn-primary"
+    =link_to 'Columns', "#", :class => "btn btn-default open-modal", :'data-modal-target' => '#twi_person_attributes_list'
+  %h1 Listing people
+
+%table.table.table-condensed.table-hover.table-bordered.datatable-serverside{:'data-source'=>backend_people_index_path(format: :json)}
+  %thead
+    %tr
+      -@person_attribute.active.pluck(:column).each do |column|
+        %th=t(column)
+  %tbody
+
+
+=render :partial => "person_attributes/modal_filter"

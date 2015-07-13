@@ -1,0 +1,27 @@
+.page-header
+  .pull-right
+    =link_to 'Index', people_path, :class => "btn btn-default"
+    =link_to 'New', new_person_path, :class => "btn btn-primary"
+    =link_to 'Edit', edit_person_path(@person), :class => "btn btn-warning"
+    =link_to 'Delete', @person, :class => "btn btn-danger"
+  %h1=@person.name
+
+%dl.dl-horizontal
+  %dt Name
+  %dd=@person.name
+%dl.dl-horizontal
+  %dt Position
+  %dd=@person.position
+%dl.dl-horizontal
+  %dt Office
+  %dd=@person.office
+%dl.dl-horizontal
+  %dt Extn
+  %dd=@person.extn
+%dl.dl-horizontal
+  %dt Start Date
+  %dd=@person.start_date
+%dl.dl-horizontal
+  %dt Salary
+  %dd=@person.salary
+%dl.dl-horizontal

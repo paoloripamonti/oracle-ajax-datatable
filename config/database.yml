@@ -1,0 +1,7 @@
+# ORACLE
+development:
+ adapter: oracle_enhanced
+ encoding: utf8
+ database: TEST
+ username: test_user
+ password: test_user

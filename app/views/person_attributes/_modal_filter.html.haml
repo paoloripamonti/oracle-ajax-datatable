@@ -1,0 +1,23 @@
+#twi_person_attributes_list.modal.fade
+  .modal-dialog
+    .modal-content
+      =form_tag upload_person_attributes_path :'data-remote' => true, :'data-type' => 'html' do
+        .modal-header
+          %button.close{:type => "button", "data-dismiss" => "modal"} ×
+          %h3 Columns
+        .modal-body
+          %h4 Select column to show
+          .list-unstyled
+            - @person_attribute.each do |attribute|
+              .col-sm-offset-1
+                %li
+                  %label.checkbox-inline
+                    -if attribute.column!=PersonAttribute::ID
+                      = check_box_tag "col[#{attribute.id}]", true, attribute.active
+                    -else
+                      = check_box_tag "col[#{attribute.id}]", true, true, :checked => "checked", :onclick => "return false"
+                    %span
+                      =attribute.column
+
+        .modal-footer
+          =submit_tag "Update", :class=>"btn btn-primary"
